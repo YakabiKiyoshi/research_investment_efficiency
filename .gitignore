@@ -1,0 +1,44 @@
+# Licensed/raw data and generated outputs
+/data/
+/outputs/
+/paper/build/
+/dist/
+/build/
+*.egg-info/
+
+# Python virtual environments (huge, regeneratable, platform-specific)
+.venv/
+venv/
+env/
+
+# Python / Jupyter cache
+__pycache__/
+*.pyc
+*.py[cod]
+.ipynb_checkpoints/
+
+# R local state
+.Rhistory
+.RData
+.Rproj.user/
+renv/library/
+renv/staging/
+
+# Secrets (never commit)
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+token.json
+
+# AI coding tools: ignore local state, but track shared non-orchestration skills
+.claude/*
+!.claude/skills/
+.codex/*
+.anthropic/
+.openai/
+
+# OS cruft
+.DS_Store
+Thumbs.db

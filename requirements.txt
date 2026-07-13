@@ -1,0 +1,23 @@
+﻿jupyterlab
+ipykernel
+
+numpy
+pandas
+scipy
+matplotlib
+scikit-learn
+statsmodels
+
+openpyxl
+pyarrow
+duckdb
+sqlalchemy
+requests
+
+plotly
+seaborn
+
+# PDF ingestion pipeline (scripts/research/pdf_*.py)
+pymupdf
+pymupdf4llm
+# pdfplumber  # optional: low-confidence table fallback (P2)

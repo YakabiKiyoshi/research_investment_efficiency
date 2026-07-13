@@ -1,0 +1,467 @@
+{
+  "$schema_note": "機械可読データパス台帳（唯一の物理パス定義場所）。詳細は data-catalog.md。コードは必ず data_paths.py / data_paths.R の data_path('<key>') で解決し、物理パスを直接書かない。フォルダ構成を変えるときはこのファイルだけを更新する（キー名は変えない）。ルートは環境変数で上書き可。",
+  "layout_version": 2,
+  "surveyed": "2026-07-12",
+  "roots": {
+    "data": {
+      "default": "C:/Data",
+      "env": "RESEARCH_DATA_ROOT"
+    },
+    "project": {
+      "default": "~/Documents/project",
+      "env": "RESEARCH_PROJECT_ROOT"
+    }
+  },
+  "entries": {
+    "fq_accounting": {
+      "root": "data",
+      "path": "fq/processed/Accounting.csv",
+      "size_mb": 522,
+      "desc": "基準統合済み年次財務（1686列、NKCODE×ACC）"
+    },
+    "fq_accounting_exp": {
+      "root": "data",
+      "path": "fq/processed/AccountingExp.csv",
+      "size_mb": 1253,
+      "desc": "年次メインDB（2155列、業種・市場・株価・EA_Adj・利益計算済み、その他金融業除外）"
+    },
+    "fq_all_accounting": {
+      "root": "data",
+      "path": "fq/processed/AllAccounting.csv",
+      "size_mb": 797,
+      "desc": "基準統合前の年次財務（中間物。merge 実行時の出力先で、通常は削除済み＝ファイル不存在が正常）"
+    },
+    "fq_quarterly": {
+      "root": "data",
+      "path": "fq/processed/Quarterly.csv",
+      "size_mb": 880,
+      "desc": "四半期（有報ベース）基準統合済み"
+    },
+    "fq_quarterly_exp": {
+      "root": "data",
+      "path": "fq/processed/QuarterlyExp.csv",
+      "size_mb": 946,
+      "desc": "四半期拡張版（年次属性結合済み）"
+    },
+    "fq_quarterly_tanshin": {
+      "root": "data",
+      "path": "fq/processed/QuarterlyTanshin.csv",
+      "size_mb": 932,
+      "desc": "四半期（短信ベース）基準統合済み"
+    },
+    "fq_quarterly_tanshin_exp": {
+      "root": "data",
+      "path": "fq/processed/QuarterlyTanshinExp.csv",
+      "size_mb": 623,
+      "desc": "短信四半期拡張版（EA_Adj 付き）"
+    },
+    "fq_price_exp": {
+      "root": "data",
+      "path": "fq/processed/PriceExp.csv",
+      "size_mb": 3351,
+      "desc": "日次株価＋TOPIX・市場区分・累積調整係数"
+    },
+    "fq_price_fiscal": {
+      "root": "data",
+      "path": "fq/processed/PriceFiscal.csv",
+      "size_mb": 143,
+      "desc": "決算期末対応版株価"
+    },
+    "fq_indicator_exp": {
+      "root": "data",
+      "path": "fq/processed/IndicatorExp.csv",
+      "size_mb": 1002,
+      "desc": "日次時価総額（自己株控除優先、百万円）"
+    },
+    "fq_indicator_fiscal": {
+      "root": "data",
+      "path": "fq/processed/IndicatorFiscal.csv",
+      "size_mb": 36,
+      "desc": "決算期末対応版時価総額"
+    },
+    "fq_listing_exp": {
+      "root": "data",
+      "path": "fq/processed/ListingExp.csv",
+      "size_mb": 21,
+      "desc": "決算期×上場市場（Market 区分、2022-04 再編対応）"
+    },
+    "fq_mothers": {
+      "root": "data",
+      "path": "fq/processed/Mothers.csv",
+      "size_mb": 1,
+      "desc": "マザーズ企業リスト"
+    },
+    "fq_processed_dir": {
+      "root": "data",
+      "path": "fq/processed",
+      "size_mb": null,
+      "desc": "FQ 分析用 DB フォルダ（研究リポジトリの主参照先）"
+    },
+    "fq_raw_dir": {
+      "root": "data",
+      "path": "fq/raw",
+      "size_mb": null,
+      "desc": "FQ 生データのルート（Accounting / Quarterly / QuarterlyTanshin / Others / Stock）"
+    },
+    "fq_raw_accounting_dir": {
+      "root": "data",
+      "path": "fq/raw/Accounting",
+      "size_mb": null,
+      "desc": "年次財務の生データ（Japan / NonConsolidated / IFRS / US.csv）"
+    },
+    "fq_raw_quarterly_dir": {
+      "root": "data",
+      "path": "fq/raw/Quarterly",
+      "size_mb": null,
+      "desc": "四半期（有報ベース）生データ"
+    },
+    "fq_raw_quarterly_tanshin_dir": {
+      "root": "data",
+      "path": "fq/raw/QuarterlyTanshin",
+      "size_mb": null,
+      "desc": "四半期（短信ベース）生データ"
+    },
+    "fq_raw_price": {
+      "root": "data",
+      "path": "fq/raw/Stock/Price.csv",
+      "size_mb": 5834,
+      "desc": "生・日次株価（37列）"
+    },
+    "fq_raw_meigara_zokusei": {
+      "root": "data",
+      "path": "fq/raw/Stock/日次銘柄属性.csv",
+      "size_mb": 11272,
+      "desc": "生・日次銘柄属性（119列）"
+    },
+    "fq_raw_meigara_shihyo": {
+      "root": "data",
+      "path": "fq/raw/Stock/日次銘柄指標.csv",
+      "size_mb": 9026,
+      "desc": "生・日次銘柄指標（72列）"
+    },
+    "fq_raw_meigara_shihyo_2003": {
+      "root": "data",
+      "path": "fq/raw/Stock/日次銘柄指標2003年更新停止.csv",
+      "size_mb": 3141,
+      "desc": "生・日次銘柄指標の旧系列（2003年更新停止）"
+    },
+    "fq_raw_stocknum": {
+      "root": "data",
+      "path": "fq/raw/Stock/StockNum.csv",
+      "size_mb": null,
+      "desc": "生・発行済株式数（権利落ベース、NKCODE/DATED/SHS）"
+    },
+    "fq_raw_market_index": {
+      "root": "data",
+      "path": "fq/raw/Stock/MarketIndex.csv",
+      "size_mb": 1,
+      "desc": "市場指数（旧 Index.csv の後継）"
+    },
+    "fq_raw_holdings": {
+      "root": "data",
+      "path": "fq/raw/Stock/Holdings.csv",
+      "size_mb": 792,
+      "desc": "自己株・発行済株式数（日次）"
+    },
+    "fq_raw_information": {
+      "root": "data",
+      "path": "fq/raw/Stock/Information.csv",
+      "size_mb": 1106,
+      "desc": "発行済株式数情報（日次）"
+    },
+    "fq_raw_blockholder": {
+      "root": "data",
+      "path": "fq/raw/Others/Blockholder.csv",
+      "size_mb": 634,
+      "desc": "大株主"
+    },
+    "fq_raw_forecast": {
+      "root": "data",
+      "path": "fq/raw/Others/Forecast.csv",
+      "size_mb": 410,
+      "desc": "企業業績予想"
+    },
+    "fq_raw_analyst": {
+      "root": "data",
+      "path": "fq/raw/Others/Analyst.csv",
+      "size_mb": 199,
+      "desc": "アナリスト予想"
+    },
+    "fq_raw_debt": {
+      "root": "data",
+      "path": "fq/raw/Others/Debt.csv",
+      "size_mb": 280,
+      "desc": "企業×金融機関×期の借入残高（1977–2021）"
+    },
+    "fq_raw_segment": {
+      "root": "data",
+      "path": "fq/raw/Others/Segment.csv",
+      "size_mb": 88,
+      "desc": "セグメント"
+    },
+    "fq_raw_listing": {
+      "root": "data",
+      "path": "fq/raw/Others/Listing.csv",
+      "size_mb": 2,
+      "desc": "上場異動"
+    },
+    "fq_raw_industry": {
+      "root": "data",
+      "path": "fq/raw/Others/Industry.csv",
+      "size_mb": 1,
+      "desc": "日経業種マスタ"
+    },
+    "fq_raw_industry_name": {
+      "root": "data",
+      "path": "fq/raw/Others/IndustryName.csv",
+      "size_mb": 1,
+      "desc": "日経業種名マスタ"
+    },
+    "fq_raw_firm_holdings": {
+      "root": "data",
+      "path": "fq/raw/Others/FirmHoldings.csv",
+      "size_mb": 61,
+      "desc": "企業保有株"
+    },
+    "fq_material_dir": {
+      "root": "data",
+      "path": "fq/material",
+      "size_mb": null,
+      "desc": "FQ 自動運転の入力企業リスト（FQ アプリで更新する xlsx）"
+    },
+    "fq_standard_change_dir": {
+      "root": "data",
+      "path": "fq/standard_change",
+      "size_mb": null,
+      "desc": "会計基準変更リスト（EffectIFRS / AbolitionUS 等）"
+    },
+    "fq_effect_ifrs": {
+      "root": "data",
+      "path": "fq/standard_change/EffectIFRS.csv",
+      "size_mb": 1,
+      "desc": "IFRS 移行会計年度リスト（基準統合に必須）"
+    },
+    "fq_abolition_us": {
+      "root": "data",
+      "path": "fq/standard_change/AbolitionUS.csv",
+      "size_mb": 1,
+      "desc": "US 基準廃止年度リスト（NA=継続適用）"
+    },
+    "fq_nfq_dir": {
+      "root": "data",
+      "path": "fq/nfq",
+      "size_mb": null,
+      "desc": "FQ 自動運転スクリプト（.nfq、nfq_generators で生成）"
+    },
+    "fq_staging_dir": {
+      "root": "data",
+      "path": "staging/fq",
+      "size_mb": null,
+      "desc": "FQ 自動運転の一時ダウンロード先（結合後は削除可の中間物）"
+    },
+    "fq_definitions_dir": {
+      "root": "data",
+      "path": "fq/definitions",
+      "size_mb": null,
+      "desc": "FQ 項目定義 PDF 群（財務データ・株価・業績予想・大株主・セグメント・借入金 等）"
+    },
+    "eol_raw_dir": {
+      "root": "data",
+      "path": "eol/raw",
+      "size_mb": null,
+      "desc": "eol 検索結果の生 CSV（AnnualReport / QuarterlyReport / EarningsAnnouncement / 業績・配当予想 / FirmList。skip=4 で読む）"
+    },
+    "eol_processed_dir": {
+      "root": "data",
+      "path": "eol/processed",
+      "size_mb": null,
+      "desc": "eol 加工済み出力フォルダ（Plot サブフォルダ含む）"
+    },
+    "eol_annual_report": {
+      "root": "data",
+      "path": "eol/processed/AnnualReport.csv",
+      "size_mb": 4,
+      "desc": "有報の提出日・提出ラグ"
+    },
+    "eol_quarterly_report": {
+      "root": "data",
+      "path": "eol/processed/QuarterlyReport.csv",
+      "size_mb": 1,
+      "desc": "四半期報告書の提出日"
+    },
+    "eol_tanshin": {
+      "root": "data",
+      "path": "eol/processed/Tanshin.csv",
+      "size_mb": 63,
+      "desc": "決算発表日イベント（FQ 突合済み、2002–2023）"
+    },
+    "eol_forecast_revision": {
+      "root": "data",
+      "path": "eol/processed/data_mf.csv",
+      "size_mb": 19,
+      "desc": "業績予想修正の開示イベント"
+    },
+    "eol_dividend_revision": {
+      "root": "data",
+      "path": "eol/processed/data_div.csv",
+      "size_mb": 6,
+      "desc": "配当予想修正の開示イベント"
+    },
+    "needs_dir": {
+      "root": "data",
+      "path": "needs_disc",
+      "size_mb": null,
+      "desc": "日経ディスク購入データ（役員・監査法人・CG報告書・株主構成。各フォルダに定義書同梱。再取得不能）"
+    },
+    "risk_free_rate": {
+      "root": "data",
+      "path": "others/RiskFreeRate.csv",
+      "size_mb": 1,
+      "desc": "無リスク金利"
+    },
+    "original_dir": {
+      "root": "data",
+      "path": "original",
+      "size_mb": null,
+      "desc": "オリジナルデータ系のルート（PDF自動抽出・ハンドコレクト等の自作データ。再取得不能）"
+    },
+    "audit_report_lag_data_dir": {
+      "root": "data",
+      "path": "original/audit",
+      "size_mb": null,
+      "desc": "監査オリジナルデータ: AuditDate（会社法監査報告書日=PDF自動抽出）・audit_report_date_jigyo・AuditFee・AuditOpinion・HandCollect系・DatabaseAQ・ForecastFirst（FRL版）"
+    },
+    "original_proxy_pdfs_dir": {
+      "root": "data",
+      "path": "original/audit/proxy_statement_pdfs",
+      "size_mb": 99700,
+      "desc": "招集通知 PDF 原本（eol スクレイピング取得、保護解除済み・年別 2004〜、11.3万件。AuditDate 抽出の元データ）"
+    },
+    "original_proxy_texts_dir": {
+      "root": "data",
+      "path": "original/audit/proxy_statement_texts",
+      "size_mb": 9140,
+      "desc": "招集通知テキスト（eigyo_101 形式、PDF から抽出。audit_report_date_jigyo.csv の直接入力）"
+    },
+    "edinet_xbrl_reports_dir": {
+      "root": "data",
+      "path": "edinet/xbrl_reports",
+      "size_mb": 64717,
+      "desc": "EDINET XBRL zip 原本（2016–2026、manifest.csv・state_xbrl.sqlite 付き。API 再取得可）"
+    },
+    "edinet_annual_db_dir": {
+      "root": "data",
+      "path": "edinet/database_annual_xbrl",
+      "size_mb": 149400,
+      "desc": "有報 XBRL 解凍済コーパス＋edinet_base.sqlite（AuditDoc 含む）"
+    },
+    "edinet_base_sqlite": {
+      "root": "data",
+      "path": "edinet/database_annual_xbrl/edinet_base.sqlite",
+      "size_mb": 120,
+      "desc": "XBRL インデックス DB（documents / extracted_files）"
+    },
+    "edinet_average_age_dir": {
+      "root": "data",
+      "path": "edinet/average_age",
+      "size_mb": null,
+      "desc": "平均年齢抽出の実行例（テキストブロック抽出パターンの参考）"
+    },
+    "edinet_dei_dir": {
+      "root": "data",
+      "path": "edinet/dei",
+      "size_mb": null,
+      "desc": "有報・四半期報告書 XBRL の DEI 抽出パネル（dei_annual.csv / dei_quarterly.csv。会計基準・連結有無フラグ。生成: data-pipeline/edinet/extract_dei.py）"
+    },
+    "edinet_taxonomy_dir": {
+      "root": "data",
+      "path": "edinet/taxonomy",
+      "size_mb": null,
+      "desc": "金融庁 EDINET タクソノミ公式参照資料（2013〜2026年版の要素リスト・更新概要・DEI設定値一覧。README.md に出典と確認済み事実）"
+    },
+    "original_geertsema_dir": {
+      "root": "data",
+      "path": "original/geertsema",
+      "size_mb": 3500,
+      "desc": "Geertsema-Lu 類似度データ（database_peers.csv 3.3GB・database.csv・同業他社\\。旧環境で生成した再現困難な成果物）"
+    },
+    "original_kam_dir": {
+      "root": "data",
+      "path": "original/kam",
+      "size_mb": 1450,
+      "desc": "KAM ハンドコレクトデータ一式（Data\\ と Output\\。旧 ★Key Audit Matters）"
+    },
+    "methodology_dir": {
+      "root": "project",
+      "path": "Methodology",
+      "size_mb": 377,
+      "desc": "研究方法論ナレッジベース（手法別文献PDF・ノート。AI参照用。手法名で Methodology/README.md を grep）"
+    },
+    "methodology_index": {
+      "root": "project",
+      "path": "Methodology/README.md",
+      "size_mb": 1,
+      "desc": "Methodology の手法→原典ファイル索引（AIはまずこれを grep）"
+    },
+    "xproj_peer_weights_dir": {
+      "root": "project",
+      "path": "research_industry_classification/outputs/gl/peer_weights",
+      "size_mb": null,
+      "desc": "[cross-project] Geertsema-Lu ピアウェイト行列（industry_classification 生成）。未生成なら [--]"
+    },
+    "xproj_ml_discretionary_accruals": {
+      "root": "project",
+      "path": "research_industry_classification/outputs/gl/accruals/ML_DiscretionaryAccruals_lnm2b_top14.csv",
+      "size_mb": null,
+      "desc": "[cross-project] ML裁量的会計発生高（industry_classification 生成）"
+    },
+    "xproj_ind_discretionary_accruals": {
+      "root": "project",
+      "path": "research_industry_classification/outputs/gl/accruals/IND_DiscretionaryAccruals.csv",
+      "size_mb": null,
+      "desc": "[cross-project] 業種裁量的会計発生高（industry_classification 生成）"
+    },
+    "xproj_conservatism_parquet": {
+      "root": "project",
+      "path": "research_conditional_conservatism/data/processed/firm_year_conservatism.parquet",
+      "size_mb": null,
+      "desc": "[cross-project] 企業年度別保守主義スコア（conditional_conservatism 生成）"
+    },
+    "xproj_accounting_conservatism_panel": {
+      "root": "project",
+      "path": "research_accounting_conservatism/data/processed/conservatism_firm_year.parquet",
+      "size_mb": null,
+      "desc": "[cross-project] トップ会計誌の保守主義指標を統合した日本企業年パネル"
+    },
+    "xproj_accounting_conservatism_duckdb": {
+      "root": "project",
+      "path": "research_accounting_conservatism/data/processed/accounting_conservatism.duckdb",
+      "size_mb": null,
+      "desc": "[cross-project] 保守主義企業年パネル・係数・指標/文献カタログのDuckDB"
+    },
+    "xproj_accounting_conservatism_metrics": {
+      "root": "project",
+      "path": "research_accounting_conservatism/data/processed/metric_catalog.csv",
+      "size_mb": null,
+      "desc": "[cross-project] 保守主義指標の定義・方向・出典・再現制約カタログ"
+    },
+    "xproj_managerial_ability_scores": {
+      "root": "project",
+      "path": "research_managerial_ability_score/outputs/models/managerial_ability_scores_2005_2020.parquet",
+      "size_mb": 2,
+      "desc": "[cross-project] 日本企業の企業年別Managerial Ability Score（7投入・上場年齢仕様、2005–2020）"
+    },
+    "xproj_managerial_ability_scores_6input": {
+      "root": "project",
+      "path": "research_managerial_ability_score/outputs/models/managerial_ability_scores_2005_2020_6input.parquet",
+      "size_mb": 2,
+      "desc": "[cross-project] 日本企業の企業年別Managerial Ability Score（オペレーティング・リース除外6投入仕様、2005–2020）"
+    },
+    "xproj_managerial_ability_scores_trailing5": {
+      "root": "project",
+      "path": "research_managerial_ability_score/outputs/models/managerial_ability_scores_2005_2020_industry_trailing5.parquet",
+      "size_mb": 2,
+      "desc": "[cross-project] 日本企業の企業年別Managerial Ability Score（7投入・産業別過去5年DEAフロンティア、2005–2020）"
+    }
+  }
+}

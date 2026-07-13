@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "investment-efficiency"
+version = "0.1.0"
+description = "Reusable investment-efficiency measures for empirical accounting research"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{ name = "Kiyoshi Yakabi" }]
+keywords = ["accounting", "investment-efficiency", "overinvestment", "underinvestment"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Information Analysis",
+]
+dependencies = [
+  "numpy>=1.26",
+  "pandas>=2.1",
+]
+
+[project.optional-dependencies]
+parquet = ["pyarrow>=15"]
+dev = [
+  "build>=1.2",
+  "pyarrow>=15",
+]
+
+[project.scripts]
+investment-efficiency = "investment_efficiency.cli:main"
+
+[project.urls]
+Repository = "https://github.com/YakabiKiyoshi/research_investment_efficiency"
+Issues = "https://github.com/YakabiKiyoshi/research_investment_efficiency/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+investment_efficiency = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

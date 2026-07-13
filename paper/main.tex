@@ -1,0 +1,52 @@
+\documentclass[11pt]{ltjsarticle}
+
+\usepackage{luatexja}
+\usepackage{luatexja-fontspec}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\setmainjfont{Noto Serif CJK JP}
+\setsansjfont{Noto Sans CJK JP}
+
+\title{研究ノート}
+\author{Kiyoshi Yakabi}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{はじめに}
+
+これは日本語文書の最小テストです。Docker上のLuaLaTeXでPDFを生成します。
+
+\section{数式}
+
+次のような回帰モデルを考える。
+
+\[
+  y_i = \alpha + \beta x_i + \varepsilon_i
+\]
+
+\section{表}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lrr}
+\toprule
+項目 & 推定値 & 標準誤差 \\
+\midrule
+切片 & 1.23 & 0.10 \\
+傾き & 0.45 & 0.05 \\
+\bottomrule
+\end{tabular}
+\caption{サンプル表}
+\end{table}
+
+\section{まとめ}
+
+日本語、英語、数式、表が同じ環境で処理できることを確認する。
+
+\end{document}

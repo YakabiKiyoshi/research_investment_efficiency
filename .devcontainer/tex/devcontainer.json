@@ -1,0 +1,43 @@
+{
+  "name": "analysis-tex",
+  "build": {
+    "dockerfile": "../../docker/tex/Dockerfile",
+    "context": "../.."
+  },
+  "workspaceFolder": "/workspace",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspace,type=bind"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "James-Yu.latex-workshop",
+        "GitHub.vscode-github-actions"
+      ],
+      "settings": {
+        "latex-workshop.latex.outDir": "%DIR%/build",
+        "latex-workshop.latex.recipes": [
+          {
+            "name": "latexmk-lualatex",
+            "tools": [
+              "latexmk-lualatex"
+            ]
+          }
+        ],
+        "latex-workshop.latex.tools": [
+          {
+            "name": "latexmk-lualatex",
+            "command": "latexmk",
+            "args": [
+              "-lualatex",
+              "-interaction=nonstopmode",
+              "-synctex=1",
+              "-outdir=build",
+              "%DOC%"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
