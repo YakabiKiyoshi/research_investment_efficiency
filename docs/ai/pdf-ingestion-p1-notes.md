@@ -72,5 +72,4 @@ outputs/ai/pdf/<paper_id>/
   → スクリプトは `.venv\Scripts\python` で起動
 - **ホスト `py` に未導入のまま `pdf-ingest` workflow を実行すると step-ingest が
   exit 3 で失敗する**（エラーメッセージに導入コマンドが出る）
-- GROBID（P3 で必須、P1 は任意）: `docker run --rm -p 8070:8070 lfoppiano/grobid:0.8.1`
-  ＋ `GROBID_URL=http://localhost:8070`
+- GROBID（P3 で必須、P1 は任意）: 稼働中のサービスを用意し、`GROBID_URL=http://localhost:8070` を設定する。

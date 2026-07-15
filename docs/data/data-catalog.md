@@ -20,7 +20,7 @@
 | `project` | `~\Documents\project` | `RESEARCH_PROJECT_ROOT` |
 
 別 PC・WSL（`/mnt/c/Data` や `/data`）・外付けドライブでは環境変数を設定するだけでよい。
-Dev Container で使う場合は `C:\Data` をマウントして `RESEARCH_DATA_ROOT` を渡す。
+別 PC や WSL では `RESEARCH_DATA_ROOT` でデータルートを指定する。
 
 ## C:\Data の全体像
 

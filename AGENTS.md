@@ -6,22 +6,16 @@ This repository uses the reproducible research environment defined by
 ## Purpose
 
 This project provides a reusable Python package for investment-efficiency
-measurement, together with reproducible Docker-based environments for:
+measurement, together with reproducible native environments for:
 
 - Python analysis
 - R analysis
 - Japanese and English LaTeX document builds
 
-The main goal is reproducibility across multiple Windows 11 PCs using Docker Desktop, WSL2, and VS Code Dev Containers.
+The main goal is reproducibility across multiple Windows 11 PCs using local Python, R, and TeX installations.
 
 ## Repository structure
 
-- `.devcontainer/python/`: Dev Container configuration for Python
-- `.devcontainer/r/`: Dev Container configuration for R
-- `.devcontainer/tex/`: Dev Container configuration for TeX
-- `docker/python/`: Dockerfile for Python analysis
-- `docker/r/`: Dockerfile for R analysis
-- `docker/tex/`: Dockerfile for LuaLaTeX / Japanese TeX
 - `notebooks/python/`: Python notebooks
 - `notebooks/r/`: R notebooks
 - `src/investment_efficiency/`: reusable Python package
@@ -40,40 +34,33 @@ The main goal is reproducibility across multiple Windows 11 PCs using Docker Des
 
 ### Python
 
-Use the `analysis-python` Dev Container.
+Use the host Python installation. Prefer a repository-local `.venv` when one
+is present.
 
 Expected checks:
 
-    pwd
     python --version
-    node --version
-    npm --version
     python -c "import pandas as pd; import sklearn; import duckdb; print('Python OK')"
 
 ### R
 
-Use the `analysis-r` Dev Container.
+Use the host R installation and restore project packages with `renv` when the
+repository provides a lockfile.
 
 Expected checks:
 
-    pwd
     R --version
-    node --version
-    npm --version
     R -e "library(renv); library(languageserver); library(IRkernel); print('R OK')"
 
 ### TeX
 
-Use the `analysis-tex` Dev Container.
+Use the host TeX installation.
 
 Expected checks:
 
-    pwd
     lualatex --version
     latexmk --version
     biber --version
-    node --version
-    npm --version
 
 Build PDF:
 
@@ -88,13 +75,10 @@ Expected output:
 - Do not commit data files.
 - Do not commit generated outputs.
 - Do not commit credentials, API keys, tokens, or local AI-tool state.
-- Keep Dockerfiles UTF-8 without BOM.
 - Prefer small, explicit changes.
 - Do not silently change the project structure.
-- When changing environment files, explain which container must be rebuilt.
-- When changing `requirements.txt`, rebuild `analysis-python`.
-- When changing `docker/r/Dockerfile`, rebuild `analysis-r`.
-- When changing `docker/tex/Dockerfile`, rebuild `analysis-tex`.
+- When changing environment files, state which native dependencies must be refreshed.
+- When changing `requirements.txt`, rerun the Python validation.
 - When changing LaTeX source, test with `bash scripts/build-pdf.sh`.
 
 ## Git policy
@@ -108,7 +92,7 @@ After editing, summarize:
 - files changed
 - reason for change
 - validation commands run
-- whether container rebuild is required
+- whether native environment refresh is required
 
 Use clear commit messages.
 
@@ -150,16 +134,15 @@ AI tools should:
 - read `README.md` and `AGENTS.md` before making changes
 - avoid modifying unrelated files
 - ask before deleting files
-- ask before changing Docker base images
 - ask before adding large dependencies
-- avoid embedding secrets in Dockerfiles, scripts, notebooks, or LaTeX files
+- avoid embedding secrets in scripts, notebooks, or LaTeX files
 
 ## Current preferred workflow
 
 For environment work:
 
-1. Edit Dockerfile or config.
-2. Rebuild the relevant Dev Container.
+1. Edit the dependency manifest or native setup script.
+2. Refresh the relevant local dependencies.
 3. Run the environment check.
 4. Commit the change.
 

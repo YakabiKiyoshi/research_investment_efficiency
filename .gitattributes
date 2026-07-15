@@ -4,10 +4,6 @@
 # Shell scripts must use LF
 *.sh text eol=lf
 
-# Dockerfiles should use LF
-Dockerfile text eol=lf
-docker/**/Dockerfile text eol=lf
-
 # JSON / Markdown / TeX
 *.json text eol=lf
 *.md text eol=lf

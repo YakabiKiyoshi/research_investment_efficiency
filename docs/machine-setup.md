@@ -1,7 +1,7 @@
 # 別 PC での環境セットアップ手順
 
 前提: Claude Code / Codex CLI・R・Python・git・gh は導入済み。
-Docker / Dev Container のファイルは各 repo にあるが**現在は使用していない**（ローカル実行）。
+Python・R・TeX はホスト環境で直接実行する。
 データレイアウトは v2（正本 `C:\Data`、カタログ: `docs/data/data-catalog.md`）。
 
 ## 1. リポジトリ取得

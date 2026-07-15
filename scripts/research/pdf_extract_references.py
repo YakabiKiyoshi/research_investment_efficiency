@@ -11,9 +11,8 @@ bibliography entry:
                   ...match metadata when resolved...}}
 
 GROBID is REQUIRED for this layer (exit 4 with a clear message when the
-service is unreachable; the quality layer then stays not-run). Start it with:
-    docker run --rm -d -p 8070:8070 lfoppiano/grobid:0.8.1
-and set GROBID_URL (default http://localhost:8070).
+service is unreachable; the quality layer then stays not-run). Provide a running
+GROBID service and set GROBID_URL (default http://localhost:8070).
 
 External resolution (--resolve crossref) is OPTIONAL and off by default:
 it is a network call whose results can change over time, so it is kept out
@@ -215,9 +214,8 @@ def main() -> int:
 
     base = args.grobid_url.rstrip("/")
     if not grobid_alive(base):
-        eprint(f"[references] GROBID unreachable at {base} -- start it with:\n"
-               "  docker run --rm -d -p 8070:8070 lfoppiano/grobid:0.8.1\n"
-               "then set GROBID_URL or pass --grobid-url. The references layer "
+        eprint(f"[references] GROBID unreachable at {base}. Set GROBID_URL or "
+               "pass --grobid-url for a running service. The references layer "
                "stays not-run until then.")
         return 4
 

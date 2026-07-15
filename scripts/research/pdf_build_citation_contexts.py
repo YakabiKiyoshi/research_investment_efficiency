@@ -14,8 +14,7 @@ ref_id links into references/references.jsonl (pdf_extract_references.py)
 by GROBID's TEI id; when that layer is absent or the id is unknown, ref_id
 is null and the entry still carries the reference description from the
 fulltext TEI itself (ref_desc). GROBID is REQUIRED (exit 4 when
-unreachable); start it with:
-    docker run --rm -d -p 8070:8070 lfoppiano/grobid:0.8.1
+unreachable); provide a running service and set GROBID_URL.
 
 Usage:
     py scripts/research/pdf_build_citation_contexts.py --paper Foo_2020_JAR
@@ -101,9 +100,8 @@ def main() -> int:
 
     base = args.grobid_url.rstrip("/")
     if not grobid_alive(base):
-        eprint(f"[citations] GROBID unreachable at {base} -- start it with:\n"
-               "  docker run --rm -d -p 8070:8070 lfoppiano/grobid:0.8.1\n"
-               "then set GROBID_URL or pass --grobid-url. The citations layer "
+        eprint(f"[citations] GROBID unreachable at {base}. Set GROBID_URL or "
+               "pass --grobid-url for a running service. The citations layer "
                "stays not-run until then.")
         return 4
 
