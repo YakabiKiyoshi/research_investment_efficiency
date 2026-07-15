@@ -208,9 +208,7 @@ DOI 10.1093/rfs/hhn053) — 実際の書誌と一致。`citation:ref-041` で被
 
 - **citations 層から「引用していない」を推論しない**（引用スタイル依存の
   recall。quality の degraded flag を尊重）。
-- GROBID 起動: `docker run --rm -d -p 8070:8070 -e JAVA_OPTS="-XX:-UseContainerSupport"
-  lfoppiano/grobid:0.8.1`。`JAVA_OPTS` は cgroup v2 環境（Docker Desktop/WSL2）で
-  JVM が起動時 NullPointerException でクラッシュする既知問題の回避策（実測）。
+- GROBID: 稼働中のサービスを `GROBID_URL` で指定する。サービスの配備方法はこのリポジトリの対象外。
 - DOI は PDF に埋まっている場合のみ `doi-from-grobid` で付く（軽量版 GROBID は
   consolidation なし）。それ以外は `--resolve crossref` を明示的に使う。
 

@@ -40,11 +40,7 @@ powershell -File scripts\ai\run-ai-workflow.ps1 -Workflow pdf-ingest -Target doc
   すべてローカル Python（`py` 起動）。Codex・LLM は関与しない。
 - アーティファクト: `outputs/ai/pdf/<paper_id>/`（paper_id = ファイル名 stem）。
 - 再実行は sha256 一致でスキップ（強制は `--force` をスクリプト直呼びで）。
-- GROBID（脚注の高精度化。P3 の参照・引用文脈では必須）はオプション。使う場合:
-  `docker run --rm -d -p 8070:8070 -e JAVA_OPTS="-XX:-UseContainerSupport"
-  lfoppiano/grobid:0.8.1` を起動し、環境変数 `GROBID_URL=http://localhost:8070`
-  を設定（`JAVA_OPTS` は cgroup v2 環境での JVM 起動クラッシュ回避。2026-07 の
-  Docker Desktop/WSL2 で実測）。不在でも P1 層は degraded で動く。
+- GROBID（脚注の高精度化。P3 の参照・引用文脈では必須）はオプション。使う場合は稼働中のサービスを用意し、環境変数 `GROBID_URL=http://localhost:8070` を設定する。不在でも P1 層は degraded で動く。
 
 ### 2. 最初に読むのは parse_quality.json だけ
 
