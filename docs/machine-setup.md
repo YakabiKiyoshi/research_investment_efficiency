@@ -71,7 +71,7 @@ R 側: `source("scripts/data/data_paths.R"); data_path("fq_accounting_exp")`。
   最初に「`docs/data/data-catalog.md` を読んで」と指示すると速い。
 - API キー類（`EDINET_API_KEY` 等）は git に入っていない。必要になったら
   その PC の環境変数に設定する。
-- `project\CLAUDE.md`（コンテナ直下の案内）は git 管理外。必要ならこのファイルと
+- `project\CLAUDE.md`（プロジェクトルートの案内）は git 管理外。必要ならこのファイルと
   data-catalog.md を参照して手で再作成する。
 
 ## 6. データを更新する場合（data-pipeline）
