@@ -283,6 +283,18 @@
       "size_mb": 4,
       "desc": "有報の提出日・提出ラグ"
     },
+    "eol_cg_raw_dir": {
+      "root": "data",
+      "path": "eol/raw/CorporateGovernance",
+      "size_mb": 22,
+      "desc": "eol コーポレート・ガバナンス検索の生 CSV（cg_{年}_{mar|other}.csv、UTF-8 BOM、skip=4 で読む。提出日=暦年・最新データのみ・決算期で分割）"
+    },
+    "eol_cg_panel": {
+      "root": "data",
+      "path": "eol/processed/CorporateGovernance.parquet",
+      "size_mb": 8,
+      "desc": "CG報告書の企業×提出暦年パネル（2015–2025、4,490社、72列）。組織形態（監査役設置/監査等委員会/指名委員会等）・取締役会・監査役会・各委員会の人数・独立役員・IR 等。派生列: Org / IsKanaTou / IsShimei / IsKansayaku / OutsideShare / NMonitors / KanaTouFirstCGYear。生成は data-pipeline/eol/build_cg_panel.py"
+    },
     "eol_quarterly_report": {
       "root": "data",
       "path": "eol/processed/QuarterlyReport.csv",
@@ -431,19 +443,31 @@
       "root": "project",
       "path": "research_accounting_conservatism/data/processed/conservatism_firm_year.parquet",
       "size_mb": null,
-      "desc": "[cross-project] トップ会計誌の保守主義指標を統合した日本企業年パネル"
+      "desc": "[AUDIT GO 2026-07-14] トップ会計誌の保守主義指標を統合した日本企業年パネル（ja_3m・intl_12m別仕様）"
     },
     "xproj_accounting_conservatism_duckdb": {
       "root": "project",
       "path": "research_accounting_conservatism/data/processed/accounting_conservatism.duckdb",
       "size_mb": null,
-      "desc": "[cross-project] 保守主義企業年パネル・係数・指標/文献カタログのDuckDB"
+      "desc": "[AUDIT GO 2026-07-14] 保守主義企業年パネル・研究用view・係数・指標/文献カタログのDuckDB"
     },
     "xproj_accounting_conservatism_metrics": {
       "root": "project",
       "path": "research_accounting_conservatism/data/processed/metric_catalog.csv",
       "size_mb": null,
       "desc": "[cross-project] 保守主義指標の定義・方向・出典・再現制約カタログ"
+    },
+    "xproj_intangible_capital_panel": {
+      "root": "project",
+      "path": "research_intangible_capital/data/processed/fq_intangible_panel.parquet",
+      "size_mb": null,
+      "desc": "[cross-project] 日本企業の無形資産測定用FQ企業年パネル"
+    },
+    "xproj_intangible_capital_measures": {
+      "root": "project",
+      "path": "research_intangible_capital/outputs/models/intangible_measures.parquet",
+      "size_mb": null,
+      "desc": "[cross-project] Peters-Taylor、Enache-Srivastava、Banker型の日本企業無形資産指標"
     },
     "xproj_managerial_ability_scores": {
       "root": "project",
@@ -462,6 +486,48 @@
       "path": "research_managerial_ability_score/outputs/models/managerial_ability_scores_2005_2020_industry_trailing5.parquet",
       "size_mb": 2,
       "desc": "[cross-project] 日本企業の企業年別Managerial Ability Score（7投入・産業別過去5年DEAフロンティア、2005–2020）"
+    },
+    "fq_volume_fe": {
+      "root": "data",
+      "path": "fq/processed/VolumeFE.csv",
+      "size_mb": null,
+      "desc": "年間売買株式数（会計年度集計）。VolumeFY。"
+    },
+    "fq_stock_num_fe": {
+      "root": "data",
+      "path": "fq/processed/StockNumFE.csv",
+      "size_mb": null,
+      "desc": "期末発行済株式数（会計年度）。"
+    },
+    "needs_audit_opinion": {
+      "root": "data",
+      "path": "needs_disc/企業基本データ（役員、監査法人・監査意見）_20190509/監査法人・監査意見/監査法人･監査意見.csv",
+      "size_mb": null,
+      "desc": "NEEDS 監査法人・監査意見（2001.03-2018.12、ヘッダ無し20列・CP932）。監査法人名/コード・監査意見・担当会計士5名。BigN の正本"
+    },
+    "needs_audit_fee": {
+      "root": "data",
+      "path": "needs_disc/企業基本データ（役員、監査法人・監査意見）_20190509/役員(新レイアウト)/監査報酬.csv",
+      "size_mb": null,
+      "desc": "NEEDS 監査報酬（2004.03-2018.12、ヘッダ無し14列・CP932。単位:百万円）。監査証明報酬/非監査報酬/連結子会社分。LnFee の正本"
+    },
+    "kam_audit_fee": {
+      "root": "data",
+      "path": "original/kam/Data/audit_fee.csv",
+      "size_mb": null,
+      "desc": "EDINET XBRL 由来の監査報酬（FY2020-2023、EDINETコード基準）。needs_audit_fee の期間外を接続する用"
+    },
+    "kam_database": {
+      "root": "data",
+      "path": "original/kam/Data/key_audit_matters_database.csv",
+      "size_mb": null,
+      "desc": "KAM ハンドコレクト DB（FY2021-2023、1,250社×3年）。監査法人・担当パートナー・KAM 本文"
+    },
+    "kam_edinet_code": {
+      "root": "data",
+      "path": "original/kam/Data/EdinetcodeDlInfo_preformed.csv",
+      "size_mb": null,
+      "desc": "EDINET コード ↔ 証券コード対応表"
     }
   }
 }
