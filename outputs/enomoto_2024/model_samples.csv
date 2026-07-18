@@ -1,0 +1,7 @@
+﻿lane,period,n,status,firms,min_year,max_year,r2
+history_reconstructed,1986-2001,0,insufficient,,,,
+history_reconstructed,2002-2013,0,insufficient,,,,
+history_reconstructed,2014-2024,0,insufficient,,,,
+cf_statement,1986-2001,0,insufficient,,,,
+cf_statement,2002-2013,69,reconstructed_core_missing_ownership_and_full_controls,27.0,2006.0,2009.0,0.3632242444222026
+cf_statement,2014-2024,0,insufficient,,,,

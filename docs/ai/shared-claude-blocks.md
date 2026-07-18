@@ -26,6 +26,9 @@
   該当フォルダの原典 PDF/ノートを読む。
 - 発見手順: `py scripts/data/data_paths.py`（全キーの解決可否を表示）。どの repo が
   稼働中かは `project/data-pipeline/tools/project-status.ps1`。
-- データ本体は GitHub に置かない（容量・ライセンス）。`data/`・`outputs/` は git 管理外。
-  バックアップは Google Drive（`data-pipeline/backup/`）。
+- データは通常の作業対象・追跡候補である。GitHubに未収録であることだけを理由に、利用・加工・
+  検証・生成・記録・追跡を回避しない。`data/`・`outputs/`を一律にgit管理外とせず、100MB未満の
+  データ・派生物・表・図・監査成果物は原則として追跡候補にする。100MB以上の実在ファイル、
+  秘密情報、又は再配布不可の原本だけを個別に扱う。バックアップはGoogle Drive
+  （`data-pipeline/backup/`）。
 <!-- END SHARED:data-access -->

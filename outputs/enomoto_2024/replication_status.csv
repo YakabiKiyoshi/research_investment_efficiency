@@ -1,0 +1,6 @@
+﻿lane,status,reason
+exact,unavailable,"NLI mutual holdings, ownership controls, and exact accrual components unavailable"
+raw_complete_case,history_unavailable_reported_cf_sparse,history-reconstructed has no five-year AQ model sample; reported-CF retains only 69 observations in 2006-2009
+missing_as_zero_proxy,executed_sensitivity_only,zero substitution is not interpreted as accounting zero
+period_extension,executed_proxy_sensitivity,out-of-paper 2014-2024 diagnostic
+cross_shareholding_moderation,unavailable,local holdings file is not construct-equivalent to NLI mutual holdings

@@ -1,0 +1,7 @@
+﻿lane,period,n,firms,min_year,max_year,r2,status,missing_item_policy
+history_reconstructed,1986-2001,7414,1220.0,1987.0,2001.0,0.24374233986303107,reconstructed_core_missing_ownership_and_full_controls,missing_as_zero_proxy_sensitivity
+history_reconstructed,2002-2013,21608,2783.0,2002.0,2013.0,0.19323546855233875,reconstructed_core_missing_ownership_and_full_controls,missing_as_zero_proxy_sensitivity
+history_reconstructed,2014-2024,23287,2827.0,2014.0,2024.0,0.22298543303337892,reconstructed_core_missing_ownership_and_full_controls,missing_as_zero_proxy_sensitivity
+cf_statement,1986-2001,0,,,,,insufficient,missing_as_zero_proxy_sensitivity
+cf_statement,2002-2013,15764,2595.0,2006.0,2013.0,0.2052025552163692,reconstructed_core_missing_ownership_and_full_controls,missing_as_zero_proxy_sensitivity
+cf_statement,2014-2024,23305,2831.0,2014.0,2024.0,0.21948399430336352,reconstructed_core_missing_ownership_and_full_controls,missing_as_zero_proxy_sensitivity

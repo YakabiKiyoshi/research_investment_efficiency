@@ -1,0 +1,3 @@
+﻿variable,definition,direction
+aq_history_reconstructed,negative SD of exactly five prior first-stage residuals,higher means higher accounting quality
+aq_cf_statement,negative SD of exactly five prior first-stage residuals using reported CFO,higher means higher accounting quality

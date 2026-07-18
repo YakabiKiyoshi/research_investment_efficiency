@@ -26,9 +26,9 @@ The main goal is reproducibility across multiple Windows 11 PCs using local Pyth
 - `src/r/`: R scripts
 - `paper/`: LaTeX source files
 - `scripts/`: Utility scripts
-- `data/raw/`: Original data, not committed
-- `data/processed/`: Processed data, not committed
-- `outputs/`: Generated outputs, not committed
+- `data/raw/`: Original or repository-scoped input data
+- `data/processed/`: Processed data and reproducibility artifacts
+- `outputs/`: Generated figures, tables, models, and audit artifacts
 
 ## Environments
 
@@ -72,8 +72,8 @@ Expected output:
 
 ## Rules for editing
 
-- Do not commit data files.
-- Do not commit generated outputs.
+- Treat data files and generated outputs as normal project artifacts and tracking candidates.
+- Do not avoid data work merely because the files are absent from GitHub.
 - Do not commit credentials, API keys, tokens, or local AI-tool state.
 - Prefer small, explicit changes.
 - Do not silently change the project structure.
@@ -106,24 +106,20 @@ Resolve paths with `scripts/data/data_paths.py` (Python) or
 `scripts/data/data_paths.R` (R) using the keys in `docs/data/data-paths.json`
 — never hardcode physical paths (the folder layout may change; only the
 registry is updated, keys stay stable). Root override: `RESEARCH_DATA_ROOT`.
-Data files themselves are NEVER committed to git (GitHub size limits and
-licensing): copy small masters to `data/raw/`, extract only needed columns
-from GB-scale files to `data/processed/*.parquet`, and record repo-local
-copies in the repo's own `docs/data-sources.md`. Backup of `C:\Data` goes
-to Google Drive (5TB), not GitHub.
+GitHub absence does not mean that data are unavailable and must not be used as
+a reason to skip data access, processing, validation, generation, or tracking.
+Do not blanket-ignore `data/` or `outputs/`: files below GitHub's 100MB hard
+per-file limit are tracking candidates. Handle only actual files at or above
+100MB, secrets, and non-redistributable source material individually. Record
+repo-local copies in `docs/data-sources.md`; the `C:\Data` backup remains on
+Google Drive (5TB).
 
 ## Data policy
 
-Do not add these to git:
-
-- `data/`
-- `outputs/`
-- `paper/build/`
-- `.env`
-- credentials
-- API keys
-- tokens
-- local Claude or Codex state
+Do not add secrets, credentials, API keys, tokens, or local Claude/Codex state
+to git. Data, outputs, and paper artifacts are not blanket exclusions. Files at
+or above 100MB require an explicit per-file handling decision because GitHub
+cannot accept them through normal Git.
 
 ## AI-tool policy
 
@@ -151,10 +147,10 @@ For analysis work:
 1. Put reusable code in `src/`.
 2. Use notebooks for exploration.
 3. Write generated figures and tables to `outputs/`.
-4. Do not commit data or outputs unless explicitly requested.
+4. Keep data and outputs visible to git unless a specific file is excluded for a concrete reason.
 
 For paper work:
 
 1. Edit files under `paper/`.
 2. Build with `bash scripts/build-pdf.sh`.
-3. Keep generated PDF and build files out of git unless explicitly requested.
+3. Treat generated PDF and build files as tracking candidates when they aid reproducibility.

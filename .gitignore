@@ -1,6 +1,7 @@
+# Project tracking policy: data and outputs under 100MB are normal tracking candidates.
+# Only exact >=100MB files, secrets, environments, caches, and temporary state are ignored.
+
 # Licensed/raw data and generated outputs
-/data/
-/outputs/
 /paper/build/
 /dist/
 /build/

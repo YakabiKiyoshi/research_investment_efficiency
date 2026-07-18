@@ -1,0 +1,34 @@
+{
+  "paper": {
+    "citation": "Enomoto, Rhee, Jung, and Shuto (2024), JWE 72, 101280",
+    "doi": "10.1016/j.japwor.2024.101280",
+    "specification_source": "2020 SSRN working paper; final metadata verified; accepted manuscript unavailable locally"
+  },
+  "input": {
+    "path": "C:\\Data\\fq\\processed\\AccountingExp.csv",
+    "size": 1332084783,
+    "mtime_ns": 1784167567289856200,
+    "sha256_header": "d667e86a19dfc20690640fe94dcba00a14a73c7d1018210f87ee035bcceb95b7"
+  },
+  "axes_policy": "consolidated only (A01_SCFLG=2); basis retained from A01_SECFLG; annual 12-month; FQ vendor",
+  "continuity_policy": "lag/lead require 330-400 days and unchanged accounting basis; methodology knowledge ID gate-time-series-transforms-on-continuity",
+  "lanes": {
+    "exact": "unavailable",
+    "history_reconstructed": "main raw-complete-case lane; non-exact: omits PPE-note/accrued-payable deltas and long-term allowance",
+    "cf_statement": "main raw-complete-case lane; post-2000 observed CFO, but same approximate TCA",
+    "missing_as_zero_proxy": "sensitivity only; never used as main result",
+    "period_extension": "2014-2024; diagnostic, not replication"
+  },
+  "unavailable": {
+    "foreign_and_financial_ownership": "not present",
+    "NLI_cross_shareholdings": "not present; FirmHoldings is not construct-equivalent",
+    "main_bank": "not constructed",
+    "exact_table_3": true
+  },
+  "forbidden_sources_not_used": [
+    "Analyst.csv",
+    "Nikkei consensus",
+    "analyst forecasts",
+    "analyst coverage"
+  ]
+}
